@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GaaonSaathi AI</title>
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🌲 GaaonSaathi AI</h1>
+
+    <div class="subtitle">
+        Low-Bandwidth Voice & Text Assistant for Rural Areas
+    </div>
+
+    <!-- ================= TEXT MODE ================= -->
+    <form method="POST" class="form-box">
+
+        <label>Select Language:</label>
+
+        <select name="language" class="dropdown" required>
+            <option value="en">English</option>
+            <option value="hi">Hindi (हिन्दी)</option>
+            <option value="mr">Marathi (मराठी)</option>
+            <option value="bn">Bengali (বাংলা)</option>
+            <option value="ta">Tamil (தமிழ்)</option>
+            <option value="gu">Gujarati (ગુજરાતી)</option>
+        </select>
+
+        <input 
+            type="text" 
+            name="query" 
+            class="input-box"
+            placeholder="Type your question here..."
+            required
+        >
+
+        <button type="submit" class="btn">
+            Ask (Type)
+        </button>
+    </form>
+
+    <br><br>
+
+    <!-- ================= VOICE MODE ================= -->
+    <form method="POST" class="form-box">
+
+        <input type="hidden" name="voice" value="1">
+
+        <label>Select Language:</label>
+
+        <select name="language" class="dropdown" required>
+            <option value="en">English</option>
+            <option value="hi">Hindi (हिन्दी)</option>
+            <option value="mr">Marathi (मराठी)</option>
+            <option value="bn">Bengali (বাংলা)</option>
+            <option value="ta">Tamil (தமிழ்)</option>
+            <option value="gu">Gujarati (ગુજરાતી)</option>
+        </select>
+
+        <button type="submit" class="btn voice-btn">
+            🎤 Speak
+        </button>
+
+    </form>
+
+    <!-- ================= OUTPUT SECTION ================= -->
+   <!-- ================= OUTPUT SECTION ================= -->
+
+{% if spoken_text %}
+    <div class="user-text">
+        <b>You said:</b> {{ spoken_text }}
+    </div>
+{% endif %}
+
+{% if category %}
+    <div class="category-badge">
+        {{ category }}
+    </div>
+{% endif %}
+
+{% if response %}
+    <div class="response-box">
+        {{ response }}
+    </div>
+{% endif %}
+
+{% if audio_file %}
+    <audio controls autoplay>
+        <source src="{{  audio_file }}" type="audio/wav">
+    </audio>
+{% endif %}
+
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register(
+        "{{ url_for('static', filename='service-worker.js') }}"
+    );
+}
+</script>
+
+</body>
+</html>
