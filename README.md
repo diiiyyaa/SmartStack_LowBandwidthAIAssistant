@@ -9,3 +9,8 @@ Diya Diwakar-Backend,Frontend
 Suhana-Worked on AI Voice Recognition system
 Kishan Raj-Worked On Data Sets
 Kushagra Pratap Singh-Worked to  Make AI Works Offline
+
+
+
+
+
