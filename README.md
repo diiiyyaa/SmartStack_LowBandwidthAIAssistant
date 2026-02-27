@@ -6,8 +6,17 @@ Problem-Many rural areas suffer from low internet bandwidth, making cloud-based 
 Track- AI data and Smart System
 Team Members-
 Diya Diwakar-Backend,Frontend
+<<<<<<< HEAD
 Suhana-Works on AI Voice Recognition system
 Kishan Raj-Working On Data Sets
 Kushagra Pratap Singh-Working to  Make AI Works Offline
+=======
+Suhana-Worked on AI Voice Recognition system
+Kishan Raj-Worked On Data Sets
+Kushagra Pratap Singh-Worked to  Make AI Works Offline
+
+
+
+>>>>>>> @{-1}
 
 
